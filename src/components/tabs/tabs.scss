@@ -1,0 +1,14 @@
+.tabs {
+    &__head-item {
+        cursor: pointer;
+        @include transition('color');
+
+        &.is-active {
+            color: $accent_light;
+        }
+    }
+
+    &__body-item {
+        display: none;
+    }
+}

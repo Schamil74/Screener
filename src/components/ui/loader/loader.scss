@@ -1,0 +1,69 @@
+.loader {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 10em;
+    height: 10em;
+
+    animation: rotating 2s ease-in-out infinite;
+
+    border-top: 0.3em solid hotpink;
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    --direction: 1;
+}
+
+.loader::before,
+.loader::after {
+    position: absolute;
+    top: -0.2em;
+
+    box-sizing: border-box;
+    width: inherit;
+    height: inherit;
+
+    content: '';
+
+    border-radius: 50%;
+}
+
+.loader::before {
+    transform: rotate(120deg);
+
+    border-top: 0.3em solid dodgerblue;
+}
+
+.loader::after {
+    transform: rotate(240deg);
+
+    border-top: 0.3em solid gold;
+}
+
+.loader span {
+    position: absolute;
+
+    width: inherit;
+    height: inherit;
+
+    animation: rotating 2s linear infinite;
+    text-align: center;
+
+    color: white;
+
+    font-family: sans-serif;
+    line-height: 10em;
+
+    --direction: -1;
+}
+
+@keyframes rotating {
+    50% {
+        transform: rotate(calc(180deg * var(--direction)));
+    }
+
+    100% {
+        transform: rotate(calc(360deg * var(--direction)));
+    }
+}

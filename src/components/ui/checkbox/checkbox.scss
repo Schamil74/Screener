@@ -1,0 +1,80 @@
+.checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+
+    & + .checkbox {
+        margin-top: 20px;
+    }
+
+    &__input {
+        position: absolute;
+        left: -9999px;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+
+        &.is-error {
+            & ~ .checkbox__label {
+                color: $accent_light !important;
+            }
+            & ~ .checkbox__custom {
+                border-color: $accent_light !important;
+            }
+        }
+
+        &:checked ~ .checkbox__custom {
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__custom {
+        position: relative;
+        flex: 0 0 20px;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        border: 1px solid $accent_dark;
+        border-radius: 2px;
+        background-color: transparent;
+        cursor: pointer;
+        @include transition('background-color');
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border: none;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            @include base-icon(
+                'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIHZpZXdCb3g9IjAgMCAxMCAxMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05LjUzIDAuMTUxODkxQzkuOTk4MzQgMC40NDQ2MDIgMTAuMTQwNyAxLjA2MTU1IDkuODQ4IDEuNTI5ODlMNC44NDggOS41Mjk4OUM0LjY4NjQ4IDkuNzg4MzEgNC40MTU5NSA5Ljk1ODk4IDQuMTEzMTYgOS45OTM0N0MzLjgxMDM3IDEwLjAyOCAzLjUwODM4IDkuOTIyNDggMy4yOTI4OSA5LjcwN0wwLjI5Mjg5MyA2LjcwN0MtMC4wOTc2MzExIDYuMzE2NDcgLTAuMDk3NjMxMSA1LjY4MzMxIDAuMjkyODkzIDUuMjkyNzhDMC42ODM0MTcgNC45MDIyNiAxLjMxNjU4IDQuOTAyMjYgMS43MDcxMSA1LjI5Mjc4TDMuODE4MjQgNy40MDM5MUw4LjE1MiAwLjQ2OTg5MUM4LjQ0NDcxIDAuMDAxNTU0MjUgOS4wNjE2NiAtMC4xNDA4MTkgOS41MyAwLjE1MTg5MVoiIGZpbGw9IiM2ODg5OTkiLz4KPC9zdmc+Cg==',
+                10px 10px
+            );
+            @include transition('opacity');
+        }
+    }
+
+    &__label {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 19px;
+        color: $accent_dark;
+        cursor: pointer;
+        @include transition('color');
+    }
+
+    &__link {
+        color: $accent_dark;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+    }
+}

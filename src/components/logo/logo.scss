@@ -1,0 +1,11 @@
+.logo {
+    &__img {
+        width: 216px;
+        height: 40px;
+
+        @include below(map-get($breaks, mobile)) {
+            width: 132px;
+            height: 24px;
+        }
+    }
+}

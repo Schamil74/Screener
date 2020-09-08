@@ -1,0 +1,11 @@
+.header {
+    box-shadow: 0 2px 4px rgba(#000, 0.3);
+    &__container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        height: 100%;
+    }
+}

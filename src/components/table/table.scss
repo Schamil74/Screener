@@ -1,0 +1,58 @@
+.table {
+    width: 100%;
+    &__thead {
+        .table__tr {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            background-color: #4a148c;
+        }
+    }
+    &__tbody {
+        .table__tr {
+            background-color: #e1bee7;
+            &:nth-child(odd) {
+                background-color: #f3e5f5;
+            }
+        }
+    }
+
+    &__tr {
+        display: flex;
+    }
+
+    &__cell {
+        flex: 0 0 25%;
+
+        max-width: 25%;
+        padding-top: 20px;
+        padding-right: 10px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+
+        &_head {
+            text-transform: uppercase;
+
+            color: #fff;
+
+            font-weight: bold;
+        }
+        &_body {
+            padding: 10px;
+
+            color: #000;
+
+            @include below(map-get($breaks, mobile)) {
+                @include ellipsis;
+            }
+        }
+    }
+
+    &__link {
+        color: $accent_dark;
+
+        font-weight: bold;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

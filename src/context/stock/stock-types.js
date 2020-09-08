@@ -1,0 +1,9 @@
+export const GET_STOCKS = 'GET_STOCKS';
+export const GET_STOCK = 'GET_STOCK';
+export const SET_LOADING = 'SET_LOADING';
+export const SET_ERROR = 'SET_ERROR';
+export const SET_FILTER = 'SET_FILTER';
+export const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE';
+export const SET_SELECT_VALUE = 'SET_SELECT_VALUE';
+export const SET_CLEAR = 'SET_CLEAR';
+export const GET_PRICE = 'GET_PRICE';

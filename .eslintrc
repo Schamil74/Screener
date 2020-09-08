@@ -1,0 +1,18 @@
+{
+    "root": true,
+    "env": {
+        "node": true,
+        "browser": true,
+        "commonjs": true,
+        "jquery": true,
+        "es6": true
+    },
+    "globals": {
+        "ymaps": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "extends": ["plugin:prettier/recommended"]
+}

@@ -1,0 +1,60 @@
+.hamburger {
+    position: relative;
+    display: none;
+    width: 34px;
+    height: 33px;
+    cursor: pointer;
+
+    @include below(map-get($breaks, tablet)) {
+        display: block;
+        margin-right: 15px;
+    }
+
+    &__line {
+        position: absolute;
+        top: 25px;
+        right: 5px;
+        left: 5px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #688999;
+        @include transition('transform');
+        border-radius: 5px;
+    }
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        right: 5px;
+        left: 5px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #688999;
+        @include transition('transform opacity');
+    }
+
+    &::before {
+        top: 5px;
+    }
+
+    &::after {
+        top: 15px;
+    }
+
+    &.is-active {
+        .hamburger__line {
+            opacity: 0;
+        }
+
+        &::before {
+            top: 15px;
+            transform: rotate(-45deg);
+        }
+
+        &::after {
+            top: 15px;
+            transform: rotate(45deg);
+        }
+    }
+}
