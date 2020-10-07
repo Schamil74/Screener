@@ -1,11 +1,11 @@
-import React from 'react';
-import withClazz from '@/hoc/withClazz';
-import { useStock } from '@/context/stock/stock-context';
-import { Link } from 'react-router-dom';
 import {
-    stockDictionary as dictionary,
     revenueDictionary,
+    stockDictionary as dictionary,
 } from '@/components/pages/dictionary.js';
+import { useStock } from '@/context/stock/stock-context';
+import withClazz from '@/hoc/withClazz';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Stock = ({ clazz }) => {
     const { stock, price } = useStock();
@@ -20,7 +20,7 @@ const Stock = ({ clazz }) => {
         assetSubClass,
         issuer,
         currency,
-        revenue,
+        revenueByCurrency,
     } = stock;
 
     const propsObj = [];
@@ -39,12 +39,12 @@ const Stock = ({ clazz }) => {
         }
     });
 
-    Object.keys(revenue).forEach(rev =>
+    Object.keys(revenueByCurrency['RUB']).forEach(rev => {
         revenueArr.push({
             title: revenueDictionary[rev],
-            val: revenue[rev],
-        })
-    );
+            val: revenueByCurrency['RUB'][rev],
+        });
+    });
 
     return (
         <div className={clazz}>
@@ -100,7 +100,9 @@ const Stock = ({ clazz }) => {
                 </div>
 
                 <div className="stock__row">
-                    <div className="stock__prop typo typo_lg">Доходность: </div>
+                    <div className="stock__prop typo typo_lg">
+                        Доходность рублевая:{' '}
+                    </div>
                     <div className="stock__val typo typo_lg">
                         <ul>
                             {revenueArr.map(({ title, val }, i) => {
